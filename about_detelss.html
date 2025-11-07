@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR.TUFER - About</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta name="description" content="Official About Page for Mr. Tufer — YouTube Creator, Gamer & Digital Influencer.">
+<meta name="author" content="Mr Tufer">
+<meta name="theme-color" content="#00f7ff">
+<meta property="og:title" content="MR.TUFER — About" />
+<meta property="og:description" content="YouTuber, Gamer & Digital Influencer" />
+<meta property="og:image" content="assets/og-image.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yourdomain.com/about.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  :root {
+    --accent: #00f7ff; 
+    --gold: #f5d76e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+
+    /* 🌌 New animated gradient background */
+    background: linear-gradient(-45deg, #120318, #1a0933, #0a2a43, #2a004f);
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
+
+    color: #fff;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeIn 0.8s ease forwards;
+    transition: all 0.6s ease;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  body.fade-out { opacity: 0; transform: scale(0.9); }
+
+  @keyframes fadeIn { to { opacity: 1; transform: scale(1); } }
+
+  h1 {
+    font-size: 3rem;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 30px;
+    animation: glow 2s infinite;
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold); }
+    50% { text-shadow: 0 0 25px var(--gold), 0 0 45px var(--gold); }
+  }
+
+  .card {
+    width: 100%;
+    max-width: 1600px;
+    border-radius: 20px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+  }
+
+  .about {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--accent);
+  }
+
+  .links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+
+  a.link-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardFade 0.8s ease forwards;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @keyframes cardFade {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  a.link-card:nth-child(n) { animation-delay: calc(0.1s * var(--i)); }
+
+  a.link-card:hover,
+  a.link-card:focus {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 0 25px var(--accent);
+    outline: none;
+  }
+
+  .link-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .link-left i { font-size: 1.5rem; transition: .3s; }
+
+  a.link-card:hover i { filter: drop-shadow(0 0 8px var(--accent)); }
+
+  .link-left .name { font-weight: 700; color: #fff; }
+
+  .link-left .small { font-size: .9rem; color: rgba(255,255,255,0.7); }
+
+  .link-right .open-text {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 12px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    background: transparent;
+    transition: .3s;
+    cursor: pointer;
+  }
+
+  .btn:hover { 
+    background: var(--accent);
+    color: #0f1724;
+    box-shadow: 0 0 25px var(--accent), 0 0 10px var(--accent) inset;
+    transform: scale(1.05);
+  }
+
+  input, textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: #fff;
+    font-family: inherit;
+  }
+
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.6); }
+
+  textarea { min-height: 100px; resize: vertical; }
+
+  @media(max-width:600px) {
+    h1 { font-size: 2.2rem; }
+    .about { font-size: 1rem; }
+    a.link-card { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>About</h1>
+    <div class="about">
+      <p>📞 Phone: <b>+94 70 392 2900</b></p>
+      <p>✉️ Email: <b>ysdstore@gmail.com</b></p>
+    </div>
+
+    <section class="links">
+      <a class="link-card" style="--i:1" href="https://youtube.com/@mrtuferofficial" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <i class="fab fa-youtube" style="color:#FF0000"></i>
+          <div><div class="name">Mr Tufer</div><div class="small">Main YouTube Channel</div></div>
+        </div>
+        <div class="link-right"><span class="open-text">YouTube</span></div>
+      </a>
+
+      <a class="link-card" style="--i:2" href="https://youtube.com/@mrtufergaming" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <i class="fab fa-youtube" style="color:#FF0000"></i>
+          <div><div class="name">Mr Tufer Gaming</div><div class="small">Gaming Channel</div></div>
+        </div>
+        <div class="link-right"><span class="open-text">YouTube</span></div>
+      </a>
+
+      <a class="link-card" style="--i:3" href="https://www.instagram.com/mr.tuferofficial/" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <i class="fab fa-instagram" style="color:#C13584"></i>
+          <div><div class="name">mr.tuferofficial</div><div class="small">Instagram</div></div>
+        </div>
+        <div class="link-right"><span class="open-text">Instagram</span></div>
+      </a>
+
+      <a class="link-card" style="--i:4" href="https://www.tiktok.com/@mr.tufer" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <i class="fab fa-tiktok" style="color:#000"></i>
+          <div><div class="name">mr.tufer</div><div class="small">TikTok</div></div>
+        </div>
+        <div class="link-right"><span class="open-text">TikTok</span></div>
+      </a>
+
+      <a class="link-card" style="--i:5" href="https://www.whatsapp.com/channel/0029VbAo8H1DOQIgnawRtp18" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <i class="fab fa-whatsapp" style="color:#25D366"></i>
+          <div><div class="name">Mr.Tufer</div><div class="small">WhatsApp Channel</div></div>
+        </div>
+        <div class="link-right"><span class="open-text">WhatsApp</span></div>
+      </a>
+
+      <a class="link-card" style="--i:6" href="https://discord.com/invite/xUZcGxjUH8" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <i class="fab fa-discord" style="color:#7289DA"></i>
+          <div><div class="name">AnyGUYZ Community</div><div class="small">Discord Server</div></div>
+        </div>
+        <div class="link-right"><span class="open-text">Discord</span></div>
+      </a>
+
+      <a class="link-card" style="--i:7" href="https://www.facebook.com/share/g/1AX1sXVz8k/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <i class="fab fa-facebook" style="color:#1877F2"></i>
+          <div><div class="name">AnyGUYZ Community</div><div class="small">Facebook Group</div></div>
+        </div>
+        <div class="link-right"><span class="open-text">Facebook</span></div>
+      </a>
+
+      <a class="link-card" style="--i:8" href="https://www.facebook.com/share/16wcVeDRuE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <i class="fab fa-facebook" style="color:#1877F2"></i>
+          <div><div class="name">Yashitha D Sheran</div><div class="small">Facebook Personal</div></div>
+        </div>
+        <div class="link-right"><span class="open-text">Facebook</span></div>
+      </a>
+
+      <a class="link-card" style="--i:9" href="https://www.facebook.com/share/17azWADfLe/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <i class="fab fa-facebook" style="color:#1877F2"></i>
+          <div><div class="name">Mr.Tufer</div><div class="small">Facebook Page</div></div>
+        </div>
+        <div class="link-right"><span class="open-text">Facebook</span></div>
+      </a>
+    </section>
+
+    <section style="margin-top:18px;">
+      <h2 style="text-align:center; color:var(--gold); margin-bottom:12px;">📩 Contact / Collab</h2>
+      <form action="https://formspree.io/f/YOUR_ENDPOINT_HERE" method="POST" style="display:flex; flex-direction:column; gap:10px; max-width:700px; margin:0 auto;">
+        <input name="name" placeholder="Your Name" required>
+        <input name="email" type="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button class="btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+      </form>
+    </section>
+
+    <div class="controls">
+      <button id="backHome" class="btn"><i class="fa-solid fa-arrow-left"></i> Go Back Home</button>
+    </div>
+  </div>
+
+<script>
+  document.getElementById('backHome').addEventListener('click', function(e){
+    e.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(() => { window.location.href = "index.html"; }, 600);
+  });
+</script>
+
+<script type="application/ld+json">
+
+</script>
+</body>
+</html>

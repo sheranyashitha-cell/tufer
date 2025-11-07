@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="si">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>YSD STORE — MR.TUFER</title>
+  <style>
+    :root{
+      --bg1:#0f1724;--bg2:#12263a;--card:#0b1220;--accent:#ffd166;--muted:#a8b3c6;
+      --glass:rgba(255,255,255,0.04);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box;transition:all .3s ease}
+    body{margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#fff;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:36px;overflow-x:hidden}
+
+    .wrap{width:100%;max-width:var(--maxw);animation:fadeIn 1s ease forwards}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px;animation:slideDown .8s ease}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff9a9a);display:flex;align-items:center;justify-content:center;color:#000;font-weight:800;font-size:18px;box-shadow:0 0 20px rgba(255,209,102,0.3)}
+    h1{margin:0;font-size:1.6rem;color:var(--accent);letter-spacing:0.6px;text-shadow:0 0 12px rgba(255,209,102,0.4)}
+    p.lead{margin:0;color:var(--muted)}
+
+    .actions{display:flex;gap:12px}
+    .btn{background:linear-gradient(90deg,#00c6ff,#0072ff);padding:10px 16px;border-radius:999px;border:0;color:#fff;font-weight:700;cursor:pointer;box-shadow:0 0 10px rgba(0,114,255,0.5)}
+    .btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(0,114,255,0.8)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+    /* Filter bar */
+    .filter-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+    .filter-btn{background:var(--glass);padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.1);color:#fff;cursor:pointer;font-weight:600}
+    .filter-btn.active{background:var(--accent);color:#000;box-shadow:0 0 15px rgba(255,209,102,0.7)}
+
+    /* Product grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.12));border-radius:14px;padding:12px;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);position:relative;overflow:hidden;animation:fadeUp 1s ease;cursor:pointer}
+    .card:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 0 25px rgba(255,255,255,0.15)}
+    .thumb{width:100%;height:190px;border-radius:10px;background:#081124;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .card:hover .thumb img{transform:scale(1.08)}
+    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+    .title{font-weight:700;font-size:1rem}
+    .price{font-weight:800;color:var(--accent)}
+    .desc{color:var(--muted);font-size:0.92rem;margin:8px 0}
+    .card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .small-btn{padding:8px 12px;border-radius:10px;border:0;background:var(--glass);color:#fff;font-weight:700;cursor:pointer}
+    .small-btn:hover{background:var(--accent);color:#000;transform:scale(1.05)}
+
+    /* Featured large card */
+    .featured{display:flex;gap:18px;align-items:center;margin-top:18px;padding:16px;border-radius:14px;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);box-shadow:0 0 25px rgba(255,255,255,0.06);animation:slideUp 1s ease}
+    .featured:hover{box-shadow:0 0 35px rgba(255,255,255,0.15)}
+    .featured .left{flex:1}
+    .featured .right{width:320px}
+    .featured img{width:100%;height:220px;object-fit:cover;border-radius:10px;transition:transform .4s ease}
+    .featured:hover img{transform:scale(1.05)}
+
+    @keyframes fadeIn{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes slideDown{0%{opacity:0;transform:translateY(-30px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes slideUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+
+    /* Responsive */
+    @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)} .featured .right{width:260px}}
+    @media(max-width:640px){body{padding:18px}.grid{grid-template-columns:1fr}.featured{flex-direction:column}.featured .right{width:100%}.brand h1{font-size:1.1rem}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">YSD</div>
+        <div>
+          <h1>YSD STORE</h1>
+          <p class="lead">MR.TUFER's official merch & picks — upgraded luxury look ✨</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="location.href='index.html'">⬅ Home</button>
+        <button class="btn ghost" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})">Contact</button>
+      </div>
+    </header>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <div class="filter-btn active" data-filter="all">All</div>
+      <div class="filter-btn" data-filter="clothing">Clothing</div>
+      <div class="filter-btn" data-filter="accessories">Accessories</div>
+      <div class="filter-btn" data-filter="gadgets">Gadgets</div>
+    </div>
+
+    <!-- Featured product -->
+    <section class="featured" data-category="clothing">
+      <div class="left">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><span class="badge">Popular</span><strong style="font-size:0.95rem">MR.TUFER Official Tee</strong></div>
+        <h2 style="margin:0 0 8px 0">Comfort fit cotton t-shirt — limited drop</h2>
+        <p class="desc">High-quality breathable cotton, printed with the YSD logo. Available in Black, White, and Olive. Free shipping for Sri Lanka.</p>
+        <div style="display:flex;gap:12px;align-items:center;margin-top:12px">
+          <div style="font-size:1.4rem;color:var(--accent);font-weight:800">LKR 2,499</div>
+          <div style="color:var(--muted);">or 3 interest-free instalments</div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:12px">
+          <button class="btn" onclick="alert('Add to cart (demo)')">Add to cart</button>
+          <button class="btn ghost" onclick="alert('View details (demo)')">View</button>
+        </div>
+      </div>
+      <div class="right">
+        <img src="images/featured.jpg" alt="Featured product image">
+      </div>
+    </section>
+
+    <!-- Product grid -->
+    <section class="grid" aria-label="products list">
+      <article class="card" data-category="accessories">
+        <div class="thumb"><img src="D:\photo\web 2\mr_tufer_site\images\shopping (3).webp" alt="Product 1"></div>
+        <div class="meta"><div class="title">YSD Cap — Snapback</div><div class="price">LKR 899</div></div>
+        <div class="desc">Classic snapback with embroidered logo. One size fits all.</div>
+        <div class="card-foot"><button class="small-btn">Add</button><div style="font-size:0.85rem;color:var(--muted)">In stock</div></div>
+      </article>
+
+      <article class="card" data-category="clothing">
+        <div class="thumb"><img src="D:\photo\web 2\mr_tufer_site\images\shopping (3).webp" alt="Product 2"></div>
+        <div class="meta"><div class="title">YSD Hoodie — Lightweight</div><div class="price">LKR 3,199</div></div>
+        <div class="desc">Soft fleece inside, relaxed fit — perfect for streaming sessions.</div>
+        <div class="card-foot"><button class="small-btn">Add</button><div style="font-size:0.85rem;color:var(--muted)">Limited</div></div>
+      </article>
+
+      <article class="card" data-category="gadgets">
+        <div class="thumb"><img src="D:\photo\web 2\mr_tufer_site\images\shopping (3).webp" alt="Product 3"></div>
+        <div class="meta"><div class="title">YSD Phone Stand</div><div class="price">LKR 599<span class="price-old">LKR 799</span></div></div>
+        <div class="desc">Aluminium portable phone stand — foldable & sturdy.</div>
+        <div class="card-foot"><button class="small-btn">Add</button><div style="font-size:0.85rem;color:var(--muted)">Sale</div></div>
+      </article>
+
+      <article class="card" data-category="accessories">
+        <div class="thumb"><img src="D:\photo\web 2\mr_tufer_site\images\shopping (3).webp" alt="Product 4"></div>
+        <div class="meta"><div class="title">YSD Sticker Pack</div><div class="price">LKR 199</div></div>
+        <div class="desc">5 high-quality vinyl stickers — weatherproof.</div>
+        <div class="card-foot"><button class="small-btn">Add</button><div style="font-size:0.85rem;color:var(--muted)">In stock</div></div>
+      </article>
+
+      <article class="card" data-category="gadgets">
+        <div class="thumb"><img src="D:\photo\web 2\mr_tufer_site\images\shopping (3).webp" alt="Product 5"></div>
+        <div class="meta"><div class="title">YSD Mug</div><div class="price">LKR 749</div></div>
+        <div class="desc">Ceramic mug 330ml — dishwasher safe.</div>
+        <div class="card-foot"><button class="small-btn">Add</button><div style="font-size:0.85rem;color:var(--muted)">In stock</div></div>
+      </article>
+
+      <article class="card" data-category="accessories">
+        <div class="thumb"><img src="D:\photo\web 2\mr_tufer_site\images\shopping (3).webp" alt="Product 6"></div>
+        <div class="meta"><div class="title">YSD Keychain</div><div class="price">LKR 249</div></div>
+        <div class="desc">Metal keychain with enamel logo — small & durable.</div>
+        <div class="card-foot"><button class="small-btn">Add</button><div style="font-size:0.85rem;color:var(--muted)">In stock</div></div>
+      </article>
+    </section>
+
+    <footer style="margin-top:36px;padding:20px 0;color:var(--muted);text-align:center">✨ 📞 Phone: +94 70 392 2900 ✨</footer>
+  </div>
+
+  <script>
+    const filterBtns=document.querySelectorAll('.filter-btn');
+    const cards=document.querySelectorAll('.card, .featured');
+    filterBtns.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        filterBtns.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat=btn.dataset.filter;
+        cards.forEach(card=>{
+          if(cat==='all'||card.dataset.category===cat){
+            card.style.display='block';card.style.opacity='1';
+          }else{card.style.opacity='0';setTimeout(()=>card.style.display='none',200);}
+        });
+      });
+    });
+  </script>
+</body>
+</html>
